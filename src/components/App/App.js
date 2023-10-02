@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Spotify from '../../utilities/Spotify';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
@@ -12,8 +13,9 @@ function App() {
   const [playlistTitle, setPlaylistTitle] = useState('New Playlist');
   const [playlistTracks, setPlaylistTracks] = useState(trackData);
 
-  const search = (target) => {
-    // do some spotify searching
+  async function searchSpotify(searchInput) {
+    const searchResults = await Spotify.search(searchInput);
+    setSearchTracks(searchResults);
   }
 
   const updatePlaylistTitle = (playlistTitleInput) => {
@@ -36,7 +38,10 @@ function App() {
 
   return (
     <div className='App'>
-      <SearchBar className='SearchBar' />
+      <SearchBar 
+        className='SearchBar'
+        searchSpotify={searchSpotify}
+      />
       <SearchResults 
         className='SearchResults' 
         searchTracks={searchTracks}

@@ -1,0 +1,17 @@
+.playlist-div {
+    background-color: #DA44FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.underline-title-input {
+    border: none; 
+    border-bottom: 1px solid #000; 
+    background: #DA44FF; 
+    padding: 10px 5px; 
+    width: 430px; 
+    font-size: 16px; 
+    color: #000; 
+    outline: none; 
+}

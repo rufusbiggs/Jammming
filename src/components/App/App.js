@@ -4,8 +4,9 @@ import Spotify from '../../utilities/Spotify';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Footer from '../Footer/Footer';
 import { trackData } from '../TestTrackData'; // mock data for implementation
-import {searchData} from '../SearchedTracksData'; // mock data for implementation
+import { searchData } from '../SearchedTracksData'; // mock data for implementation
 
 
 function App() {
@@ -38,24 +39,41 @@ function App() {
 
   return (
     <div className='App'>
-      <SearchBar 
-        className='SearchBar'
-        searchSpotify={searchSpotify}
-      />
-      <SearchResults 
-        className='SearchResults' 
-        searchTracks={searchTracks}
-        onAddTrack={onAddTrack}
-      />
-
-      <div className='Playlist'>
-        <Playlist 
-          playlistTitle={playlistTitle}
-          onTitleChange={updatePlaylistTitle}
-          playlistTracks={playlistTracks}
-          onRemoveTrack={onRemoveTrack}
-        />
+      <div className="title-container">
+        <h1 className='page-title'>JAMMMING</h1>
       </div>
+
+      <div className='columns'>
+        <div className="left">
+          <div className='search-bar-container'>
+            <SearchBar 
+              className='SearchBar'
+              searchSpotify={searchSpotify}
+            />
+          </div>
+          <SearchResults 
+            className='SearchResults' 
+            searchTracks={searchTracks}
+            onAddTrack={onAddTrack}
+          />
+        </div>
+    
+        <div className="right">
+          <div className='Playlist'>
+            <Playlist 
+              playlistTitle={playlistTitle}
+              onTitleChange={updatePlaylistTitle}
+              playlistTracks={playlistTracks}
+              onRemoveTrack={onRemoveTrack}
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div className="footer-container">
+        <Footer />
+      </div>
+      
     </div>
   );
 }

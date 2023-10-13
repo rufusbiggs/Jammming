@@ -1,1 +1,61 @@
+.App {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
+.App::before {
+    content: "";
+    background-image: url(./backgroundImage/1247.jpg);
+    filter: saturate(0%);
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 0;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-title {
+    background-color: rgba(224, 9, 216, 0.7);
+    padding: 10px 20px;
+    font-family: 'Black Ops One', cursive;
+    font-size: 48px;
+    border-radius: 5px;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+}
+
+.left {
+    background-color: #DA44FF;
+}
+
+.right {
+    background-color: #DA44FF;
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

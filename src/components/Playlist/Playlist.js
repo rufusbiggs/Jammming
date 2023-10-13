@@ -1,5 +1,6 @@
 import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
+import './Playlist.css';
 
 function Playlist(props) {
     const handleTitleChange = (event) => {
@@ -8,15 +9,15 @@ function Playlist(props) {
     
 
     return (
-        <>
-            <input onChange={handleTitleChange} type='text' ></input>
+        <div className="playlist-div">
+            <input onChange={handleTitleChange} type='text' className="underline-title-input"></input>
             <Tracklist 
                 tracks={props.playlistTracks}
                 onTrackAction={props.onRemoveTrack}
                 addRemove='-'
             />
             <submit></submit>
-        </>
+        </div>
     )
 }
 

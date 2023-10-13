@@ -6,7 +6,7 @@ let accessToken;
 
 class Spotify {
     
-    getAccessToken() {
+    static getAccessToken() {
         // Check if we already have an access token
         if (accessToken){
             return accessToken;
@@ -29,8 +29,8 @@ class Spotify {
         }
     };
 
-    async search(searchInput) {
-        const token = this.getAccessToken();
+    static async search(searchInput) {
+        const token = Spotify.getAccessToken();
         const searchUrl = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`;
         const searchResponse = await fetch(searchUrl, {
             headers: {
@@ -44,7 +44,7 @@ class Spotify {
                 return ({
                     id: track.id,
                     name: track.name,
-                    artist: track.artists.name,
+                    artist: track.artists[0].name,
                     album: track.album.name
                 });
             });

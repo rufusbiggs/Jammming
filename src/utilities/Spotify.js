@@ -1,6 +1,7 @@
 
 var client_id = '28a152cd9bcc46a6bad8062249032719';
-var redirect_uri = 'http://localhost:3000';
+var redirect_uri = 'http://localhost:3000/';
+var scope = "playlist-modify-public";
 let accessToken;
 
 
@@ -24,6 +25,7 @@ class Spotify {
             let accessUrl = 'https://accounts.spotify.com/authorize';
             accessUrl += '?response_type=token';
             accessUrl += '&client_id=' + client_id;
+            accessUrl += '&scope=' + scope;
             accessUrl += '&redirect_uri=' + redirect_uri;
             window.location = accessUrl;
         }
@@ -50,11 +52,48 @@ class Spotify {
             });
         };
     };
+
+    static async savePlaylist(name, trackUris) {
+        if (name && trackUris.length){
+            const token = await Spotify.getAccessToken();
+            const playlistsUrl = `https://api.spotify.com/v1/me`;
+            const playlistResponse = await fetch(playlistsUrl, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            // Create new playlist
+            const playlistJsonResponse = await playlistResponse.json();
+            const user_id = playlistJsonResponse.id;
+            const createPlaylistUrl = `https://api.spotify.com/v1/users/${user_id}/playlists`;
+            const createPlaylistResponse = await fetch(createPlaylistUrl, {
+                method: `POST`,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    description: `Playlist created in Jammming`,
+                    public: true
+                })
+            });
+            // Add tracks to new playlist
+            const createPlaylistJsonResponse = await createPlaylistResponse.json();
+            const playlist_id = createPlaylistJsonResponse.id;
+            const updatePlaylistUrl = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`;
+            await fetch(updatePlaylistUrl, {
+                method: `PUT`,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    uris: trackUris
+                })
+            });
+        };
+    };
 }
 
 export default Spotify;
-
-
-
-
-// http://localhost:3000/#access_token=BQDzffa-29LcdGVEExjfqZl59IKaiAxPPbrcha6zIYN-jJDje_6Ek1Lwe7rZRZQxfwQu_83w4BX7dD-IU9oGwQK2wp55iFx2kItVRQuDunsFK3h_qQg6XfgII8dik-hyEd0ttvgh5mMbyckpQo_njB0ONu18iTcHEjkpMyQAJuIuA64&token_type=Bearer&expires_in=3600

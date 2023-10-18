@@ -15,3 +15,14 @@
     color: #000; 
     outline: none; 
 }
+
+.submit-button {
+    border: solid black;
+    border-radius: 5px;
+    background: #E062D8;
+    padding: 10px 0;
+    margin: 20px 0;
+    width: 280px;
+    font-size: 20px;
+    font-weight: bold;
+}

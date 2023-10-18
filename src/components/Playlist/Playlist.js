@@ -6,17 +6,16 @@ function Playlist(props) {
     const handleTitleChange = (event) => {
         props.onTitleChange(event.target.value);
     }
-    
 
     return (
         <div className="playlist-div">
-            <input onChange={handleTitleChange} type='text' className="underline-title-input"></input>
+            <input onChange={handleTitleChange} type='text' className="underline-title-input" value={props.playlistTitle}></input>
             <Tracklist 
                 tracks={props.playlistTracks}
                 onTrackAction={props.onRemoveTrack}
                 addRemove='-'
             />
-            <submit></submit>
+            <button onClick={props.onSubmit} type="submit" value="submit" className="submit-button">Save to Spotify</button>
         </div>
     )
 }

@@ -4,15 +4,13 @@ import Spotify from '../../utilities/Spotify';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
-import Footer from '../Footer/Footer';
-import { trackData } from '../TestTrackData'; // mock data for implementation
-import { searchData } from '../SearchedTracksData'; // mock data for implementation
+import Footer from '../Footer/Footer'; 
 
 
 function App() {
-  const [searchTracks, setSearchTracks] = useState(searchData);
+  const [searchTracks, setSearchTracks] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('New Playlist');
-  const [playlistTracks, setPlaylistTracks] = useState(trackData);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   async function searchSpotify(searchInput) {
     const searchResults = await Spotify.search(searchInput);
@@ -35,6 +33,13 @@ function App() {
     setPlaylistTracks(playlistTracks.filter(prevTrack => prevTrack.id !== track.id));
   }
     
+  async function onSubmit() {
+        // save playlist to spotify
+        const trackUris = playlistTracks.map(track => `spotify:track:${track.id}`);
+        await Spotify.savePlaylist(playlistTitle, trackUris);
+        setPlaylistTracks([]);
+        setPlaylistTitle("");
+  }
   
 
   return (
@@ -65,6 +70,7 @@ function App() {
               onTitleChange={updatePlaylistTitle}
               playlistTracks={playlistTracks}
               onRemoveTrack={onRemoveTrack}
+              onSubmit={onSubmit}
             />
           </div>
         </div>

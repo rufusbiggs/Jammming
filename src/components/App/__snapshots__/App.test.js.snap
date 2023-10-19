@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="title-container"
+    >
+      <h1
+        class="page-title"
+      >
+        JAMMMING
+      </h1>
+    </div>
+    <div
+      class="columns"
+    >
+      <div
+        class="left"
+      >
+        <div
+          class="search-bar-container"
+        >
+          <div
+            class="search-container"
+          >
+            <input
+              class="underline-search-input"
+              placeholder="Search"
+              type="text"
+            />
+            <span
+              class="search-icon"
+            >
+              🔍
+            </span>
+          </div>
+        </div>
+        <div
+          class="tracklist-div"
+        />
+      </div>
+      <div
+        class="right"
+      >
+        <div
+          class="Playlist"
+        >
+          <div
+            class="playlist-div"
+          >
+            <input
+              class="underline-title-input"
+              type="text"
+              value="New Playlist"
+            />
+            <div
+              class="tracklist-div"
+            />
+            <button
+              class="submit-button"
+              type="submit"
+              value="submit"
+            >
+              Save to Spotify
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer-container"
+    >
+      <a
+        href="https://github.com/rufusbiggs/Jammming/tree/main"
+      >
+        <h3
+          data-testid="footerText"
+        >
+          Check out my code on Github!
+        </h3>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

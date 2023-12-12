@@ -16,9 +16,8 @@ Users can export their custom playlist to their personal Spotify account
 
 # Technologies
 
-* HTML
-* CSS
-* JavaScript
-* React
-* HTTP Requests and Responses
-* Authentication
+* HTML, CSS, JavaScript
+* React Application
+* HTTP Requests and Responses used with the Spotify API (getting song data and posting a playlist to spotify account)
+* Authentication to spotify account using url token
+* Jest used for testing

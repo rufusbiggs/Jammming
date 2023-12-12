@@ -14,7 +14,7 @@ Users can see information about each song like title, artist, and album for song
 Users can export their custom playlist to their personal Spotify account
 
 
-# Technologies
+## Technologies
 
 * HTML, CSS, JavaScript
 * React Application

@@ -1,10 +1,10 @@
 # Jammming
 
-View site: https://boisterous-medovik-f79b6d.netlify.app/
-
 **React web app for creating and saving playlists to users Spotify account**
 
 Used my knowledge of React components, passing state, and requests with the Spotify API to build a website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
+
+View site: https://boisterous-medovik-f79b6d.netlify.app/
 
 ## Features
 

@@ -1,4 +1,6 @@
-# Jammming - https://boisterous-medovik-f79b6d.netlify.app/
+# Jammming
+
+View site: https://boisterous-medovik-f79b6d.netlify.app/
 
 **React web app for creating and saving playlists to users Spotify account**
 

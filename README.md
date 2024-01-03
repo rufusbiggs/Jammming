@@ -1,4 +1,4 @@
-# Jammming
+# Jammming - https://boisterous-medovik-f79b6d.netlify.app/
 
 **React web app for creating and saving playlists to users Spotify account**
 
@@ -21,3 +21,4 @@ Users can export their custom playlist to their personal Spotify account
 * HTTP Requests and Responses used with the Spotify API (getting song data and posting a playlist to spotify account)
 * Authentication to spotify account using url token
 * Jest used for testing
+* Deployed using Netlify

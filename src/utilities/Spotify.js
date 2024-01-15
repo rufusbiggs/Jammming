@@ -1,6 +1,6 @@
 
 var client_id = '28a152cd9bcc46a6bad8062249032719';
-var redirect_uri = 'http://localhost:3000/';
+var redirect_uri = 'https://boisterous-medovik-f79b6d.netlify.app';
 var scope = "playlist-modify-public";
 let accessToken;
 

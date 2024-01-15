@@ -9,7 +9,7 @@ function Playlist(props) {
 
     return (
         <div className="playlist-div">
-            <input onChange={handleTitleChange} type='text' className="underline-title-input" value={props.playlistTitle}></input>
+            <input onChange={handleTitleChange} type='text' name="playlist-title" placeholder="Playlist title" className="underline-title-input" value={props.playlistTitle}></input>
             <Tracklist 
                 tracks={props.playlistTracks}
                 onTrackAction={props.onRemoveTrack}
